@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMecanizado.Vistas.Login"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White"
+             Visual="Material">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="10, 50">
+            <Entry Text="" x:Name="entryUsuario" Placeholder="Usuario" PlaceholderColor="Black" BackgroundColor="White" 
+                   HorizontalOptions="FillAndExpand" Margin="20"/>
+            <Entry Text="" x:Name="entryPassword" Placeholder="Contraseña" PlaceholderColor="Black" BackgroundColor="White" 
+                   HorizontalOptions="FillAndExpand" Margin="20" IsPassword="True"/>
+            <Button x:Name="btnIngresar" Text="Ingresar" BackgroundColor="Black" TextColor="White" HorizontalOptions="FillAndExpand" 
+                    Margin="20" Padding="10" CornerRadius="8" FontSize="25" Clicked="btnIngresar_Clicked"/>
+            <ActivityIndicator x:Name="indicator_login" Color="DarkSlateGray" IsEnabled="True" Margin="20" 
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="50"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

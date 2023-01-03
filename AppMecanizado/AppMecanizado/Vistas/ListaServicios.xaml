@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMecanizado.Vistas.ListaServicios"
+             Title="Lista de Servicios"
+             BackgroundColor="White"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="toolbar" Text="Agregar" Clicked="toolbar_Clicked" Order="Primary"/>
+        <ToolbarItem x:Name="tbActualizar" Text="Actualizar" Clicked="tbActualizar_Clicked" Order="Secondary"/>
+        <ToolbarItem x:Name="tbCerrar" Text="Cerrar sesion" Clicked="tbCerrar_Clicked" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <Grid Margin="5, 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="txtNombre" TextColor="Black" FontSize="18" HorizontalTextAlignment="Start"/>
+        <ListView Grid.Row="1" x:Name="listServicios" SeparatorColor="DarkSlateBlue" BackgroundColor="White" ItemTapped="listServicios_ItemTapped" Margin="5" RowHeight="80">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding p_Fecha_estimada}" TextColor="Black" Detail="{Binding Descripcion}" DetailColor="DarkSlateBlue"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

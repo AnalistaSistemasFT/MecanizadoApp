@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMecanizado.Vistas.ListaDeServicios"
+            Visual="Material"
+            Title="Lista de servicios">
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Pendiente" BackgroundColor="White">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem x:Name="toolbarPend" Text="Agregar" Clicked="toolbarPend_Clicked" Order="Primary"/>
+            <ToolbarItem x:Name="tbPendCerrar" Text="Cerrar sesion" Clicked="tbPendCerrar_Clicked" Order="Secondary"/>
+        </ContentPage.ToolbarItems>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" x:Name="txtNombrePend" TextColor="Black" FontSize="15" Margin="10,5"/>
+            <StackLayout x:Name="stkListaPend" Grid.Row="1">
+                <Label x:Name="lblPend" Text="No existen servicios pendientes" TextColor="Black" FontSize="20" HorizontalTextAlignment="Center" IsVisible="False"/>
+                <ListView x:Name="listServiciosPend" SeparatorColor="DarkBlue" BackgroundColor="White" ItemTapped="listServiciosPend_ItemTapped" Margin="5" RowHeight="80">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding display_lista_pend}" TextColor="Black" Detail="{Binding Descripcion}" DetailColor="DarkSlateGray"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="En proceso" BackgroundColor="White">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem x:Name="toolbarEnProc" Text="Agregar" Clicked="toolbarEnProc_Clicked" Order="Primary"/>
+            <ToolbarItem x:Name="tbProcCerrar" Text="Cerrar sesion" Clicked="tbProcCerrar_Clicked" Order="Secondary" Priority="1"/>
+        </ContentPage.ToolbarItems>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" x:Name="txtNombreEnProc" TextColor="Black" FontSize="15" Margin="10,5"/>
+            <StackLayout x:Name="stkListaEnProc" Grid.Row="1">
+                <Label x:Name="lblEnProc" Text="No existen servicios en proceso" TextColor="Black" FontSize="20" HorizontalTextAlignment="Center" IsVisible="False"/>
+                <ListView x:Name="listServiciosEnProc" SeparatorColor="DarkBlue" BackgroundColor="White" ItemTapped="listServiciosEnProc_ItemTapped" Margin="5" RowHeight="80">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding display_lista_proc}" TextColor="Black" Detail="{Binding Descripcion}" DetailColor="DarkSlateGray"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage>
+    <ContentPage Title="Finalizado" BackgroundColor="White">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem x:Name="toolbarFin" Text="Agregar" Clicked="toolbarFin_Clicked" Order="Primary"/>
+            <ToolbarItem x:Name="tbFinCerrar" Text="Cerrar sesion" Clicked="tbFinCerrar_Clicked" Order="Secondary"/>
+        </ContentPage.ToolbarItems>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" x:Name="txtNombreFin" TextColor="Black" FontSize="15" Margin="10,5"/>
+            <StackLayout x:Name="stkListaFin"  Grid.Row="1">
+                <Label x:Name="lblFin" Text="No existen servicios finalizados" TextColor="Black" FontSize="20" HorizontalTextAlignment="Center" IsVisible="False"/>
+                <ListView x:Name="listServiciosFin" SeparatorColor="DarkBlue" BackgroundColor="White" ItemTapped="listServiciosFin_ItemTapped" Margin="5" RowHeight="80">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding display_lista_pfin}" TextColor="Black" Detail="{Binding Descripcion}" DetailColor="DarkSlateGray"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage>
+</TabbedPage>

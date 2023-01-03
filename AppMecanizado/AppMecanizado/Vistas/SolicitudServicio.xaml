@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMecanizado.Vistas.SolicitudServicio"
+             Visual="Material"
+             Title="Registrar Solicitud">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="10" BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="100"/> 
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                    <Label Text="Solicitado por: " TextColor="Black" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+                    <Label x:Name="txtSolicitante" FontAttributes="Bold" TextColor="Black" FontSize="20" VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                    <Label Text="Fecha: " TextColor="Black" VerticalTextAlignment="Center" FontSize="20" FontAttributes="Bold"/>
+                    <DatePicker x:Name="pickFecha" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="White"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
+                    <Picker x:Name="pickerCentroTrabajo" TextColor="Black" HorizontalOptions="FillAndExpand" SelectedIndexChanged="pickerCentroTrabajo_SelectedIndexChanged"
+                            VerticalOptions="Center" Title="Centro de Trabajo" TitleColor="DarkSlateGray" BackgroundColor="White"/>
+                </StackLayout>
+                <Label Grid.Column="0" Grid.Row="3" Text="REQUERIMIENTOS" TextColor="Black" HorizontalTextAlignment="Center" Margin="15" 
+                       FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="20"/>
+                <StackLayout Grid.Column="0" Grid.Row="4">
+                    <StackLayout HorizontalOptions="Start">
+                        <Label Text="Prioridad" HorizontalTextAlignment="Start" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Urgente" TextColor="Black" FontSize="18"/>
+                            <CheckBox x:Name="checkUrgente" IsChecked="False" CheckedChanged="checkUrgente_CheckedChanged" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Importante" TextColor="Black" FontSize="18"/>
+                            <CheckBox x:Name="checkImportante" IsChecked="False" CheckedChanged="checkImportante_CheckedChanged" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Repuesto" TextColor="Black" FontSize="18"/>
+                            <CheckBox x:Name="checkRepuesto" IsChecked="False" CheckedChanged="checkRepuesto_CheckedChanged" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="5">
+                    <Picker x:Name="pickerProducto" Title="Producto" TitleColor="DarkSlateGray" TextColor="Black" HorizontalOptions="FillAndExpand" BackgroundColor="White"
+                            SelectedIndexChanged="pickerProducto_SelectedIndexChanged" VerticalOptions="Center" ItemDisplayBinding="{Binding p_Nombre}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="6">
+                    <Entry x:Name="entryDescripcion" Placeholder="Descripcion" PlaceholderColor="DarkSlateGray" HorizontalOptions="FillAndExpand" TextColor="Black" 
+                           VerticalOptions="Center" BackgroundColor="White"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="7">
+                    <Entry x:Name="entryObservacion" Placeholder="Observaciones" PlaceholderColor="DarkSlateGray" HorizontalOptions="FillAndExpand" TextColor="Black" 
+                           VerticalOptions="Center" BackgroundColor="White"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="8">
+                    <Entry x:Name="entryCantidad" Placeholder="Cantidad" PlaceholderColor="DarkSlateGray" HorizontalOptions="FillAndExpand" TextColor="Black"
+                           Keyboard="Numeric" VerticalOptions="Center" BackgroundColor="White"/>
+                </StackLayout>
+                <StackLayout Grid.Column="0" Grid.Row="9">
+                    <Label Text="Muestras" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                    <Button x:Name="btnAgregarMuestra" BackgroundColor="Black" TextColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                            Clicked="btnAgregarMuestra_Clicked" Text="Agregar imagen" Margin="10"/>
+                </StackLayout>
+                <StackLayout Grid.Column="0" Grid.Row="10">
+                    <ActivityIndicator x:Name="activityMuestra" IsEnabled="True" Color="Green" HorizontalOptions="Center" VerticalOptions="Center"
+                                       HeightRequest="30"/>
+                    <Image x:Name="imgMuestra" HeightRequest="140" WidthRequest="140" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="txtMuestra" Text="No hay imagen" TextColor="Black" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="0" Grid.Row="11">
+                    <Label Text="Planos" TextColor="Black" FontAttributes="Bold" FontSize="20"/>
+                    <Button x:Name="btnAgregarPlano" BackgroundColor="Black" TextColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                            Clicked="btnAgregarPlano_Clicked" Text="Agregar imagen" Margin="10"/>
+                </StackLayout>
+                <StackLayout Grid.Column="0" Grid.Row="12">
+                    <ActivityIndicator x:Name="activityPlano" IsEnabled="True" Color="Green" HorizontalOptions="Center" VerticalOptions="Center"
+                                       HeightRequest="30"/>
+                    <Image x:Name="imgPlano" HeightRequest="140" WidthRequest="140" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="txtPlano" Text="No hay imagen" TextColor="Black" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Label Grid.Column="0" Grid.Row="13" Text="ESPECIFICACIONES TECNICAS" TextColor="Black" HorizontalTextAlignment="Center" Margin="15" 
+                       VerticalTextAlignment="Center" FontSize="20" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="14">
+                    <Editor x:Name="entryMaterial" Placeholder="Material" PlaceholderColor="DarkSlateGray" HorizontalOptions="FillAndExpand" TextColor="Black" 
+                           VerticalOptions="CenterAndExpand" HeightRequest="80" BackgroundColor="White"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="15">
+                    <Editor x:Name="entryDureza" Placeholder="Dureza" PlaceholderColor="DarkSlateGray" HorizontalOptions="FillAndExpand" TextColor="Black" 
+                           VerticalOptions="CenterAndExpand" HeightRequest="80" BackgroundColor="White"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="16">
+
+                    <Editor x:Name="entryOtros" Placeholder="Otros" PlaceholderColor="DarkSlateGray" HorizontalOptions="FillAndExpand" TextColor="Black" 
+                           VerticalOptions="CenterAndExpand" HeightRequest="80" BackgroundColor="White" />
+                </StackLayout>
+                <Button x:Name="btnRegistrar" Grid.Column="0" Grid.Row="17" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Green" 
+                        TextColor="White" Margin="15" FontSize="25" Text="Registrar" Clicked="btnRegistrar_Clicked"/>
+                <ActivityIndicator Grid.Column="0" Grid.Row="18" x:Name="indicator_login" Color="DarkSlateGray" IsEnabled="True" Margin="20" 
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" HeightRequest="50"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
